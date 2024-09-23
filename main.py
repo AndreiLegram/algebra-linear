@@ -8,11 +8,10 @@ try:
     method_name = sys.argv[1]
     datafile_name = sys.argv[2]
     method = getattr(methods, method_name)
-    items = utils.get_items_from_datafile(datafile_name)
-    for index, matrix in items:
-        utils.validate_matrix(matrix, method_name)
-        result = cli.build_result(index, method(*matrix))
-        print(result)
+    json = utils.get_data_from_file(datafile_name)
+    for index, matrix in json.items():
+        kwargs = utils.get_method_kwargs(matrix, method_name)
+        print(cli.build_result(index, method(**kwargs)))
 
 except Exception as e:
-    raise SystemExit(str(e))
+    print(str(e))

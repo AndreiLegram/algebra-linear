@@ -8,13 +8,13 @@ def process_args():
         msg = 'Primeiro argumento inválido...\n' \
               'Informe um dos seguintes métodos para o cálculo:\n'
         msg += '\n'.join(map(lambda m: '- %s' % m, method_list))
-        raise SystemExit(msg)
+        raise Exception(msg)
     if len(sys.argv) < 3 or sys.argv[2] not in datafile_list:
         msg = 'Segundo argumento inválido...\n' \
               'Informe um dos seguintes arquivos como base de dados:\n'
         msg += '\n'.join(map(lambda f: '- %s' % f, datafile_list))
-        raise SystemExit(msg)
+        raise Exception(msg)
 
-def build_result(result):
-    # TODO
-    return result
+def build_result(index, result):
+    # TODO build_result
+    return {index: result}

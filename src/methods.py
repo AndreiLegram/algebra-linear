@@ -1,22 +1,8 @@
 import numpy as np
 
-def jacobi(A,b,N=25,x=None):
-    """Solves the equation Ax=b via the Jacobi iterative method."""
-    # Create an initial guess if needed                                                                                                                                                            
-    if x is None:
-        x = np.zeros(len(A[0]))
-
-    # Create a vector of the diagonal elements of A                                                                                                                                                
-    # and subtract them from A                                                                                                                                                                     
-    D = np.diag(A)
-    R = A - np.diagflat(D)
-
-    # Iterate for N times                                                                                                                                                                          
-    for i in range(N):
-        x = (b - np.dot(R,x)) / D
-    return x
-
 def gauss_seidel(A, b, tolerance, max_iterations, x):
+    # TODO gauss_seidel
+    return []
     #x is the initial condition
     iter1 = 0
     #Iterate
@@ -37,4 +23,22 @@ def gauss_seidel(A, b, tolerance, max_iterations, x):
         if  LnormInf < tolerance:
             break
 
+    return x
+
+def jacobi(A,b,N=25,x=None):
+    # TODO jacobi
+    return []
+    """Solves the equation Ax=b via the Jacobi iterative method."""
+    # Create an initial guess if needed                                                                                                                                                            
+    if x is None:
+        x = np.zeros(len(A[0]))
+
+    # Create a vector of the diagonal elements of A                                                                                                                                                
+    # and subtract them from A                                                                                                                                                                     
+    D = np.diag(A)
+    R = A - np.diagflat(D)
+
+    # Iterate for N times                                                                                                                                                                          
+    for i in range(N):
+        x = (b - np.dot(R,x)) / D
     return x

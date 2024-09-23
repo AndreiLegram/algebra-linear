@@ -18,31 +18,47 @@ def get_datafile_list():
             if isfile(file_name):
                 file = open(file_name)
                 json.loads(file.read())
-                files.append(file_name)
+                files.append(f)
                 file.close()
         if not files:
-            msg = 'Nenhum arquivo encontrado para base de dados\n' \
+            msg = 'ERRO: Nenhum arquivo encontrado para base de dados\n' \
                   'Insira um arquivo JSON na pasta \'%s\'' % DATA_DIR
             raise Exception(msg)
         return files
     except ValueError as e:
-        msg = 'O arquivo \'%s\' é inválido - (%s)' % (file_name, str(e))
+        msg = 'ERRO: O arquivo \'%s\' é inválido\n' \
+              'Mensagem: \'%s\'' % (file_name, str(e))
         raise Exception(msg)
 
-def get_items_from_datafile(file_name):
+def get_data_from_file(file_name):
+    # TODO get_data_from_file
     file = open(join(DATA_DIR, file_name))
     data = json.loads(file.read())
     file.close()
     if not data:
-        msg = 'O arquivo JSON \'%s\' é inválido' % file_name
+        msg = 'ERRO: O arquivo JSON \'%s\' é inválido' % file_name
         raise Exception(msg)
     return data
 
-def validate_matrix(matrix, method):
-    # TODO
-    if method == 'jacobi':
-        return matrix == matrix
-    elif method == 'gauss_seidel':
-        return matrix == matrix
+def get_method_kwargs(matrix, method):
+    # TODO get_method_kwargs
+    if method == 'gauss_seidel':
+        result = {
+            "A": matrix,
+            "b": matrix,
+            "tolerance": 25,
+            "max_iterations": 50,
+            "x": matrix
+        }
+        return result
+    elif method == 'jacobi':
+        result = {
+            "A": matrix,
+            "b": matrix,
+            "N": 25,
+            "x": None
+        }
+        return result
     else:
-        return matrix == matrix
+        msg = 'ERRO: O método \'%s\' é inválido' % method
+        raise Exception(msg)
