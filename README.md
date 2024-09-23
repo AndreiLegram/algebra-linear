@@ -1,10 +1,25 @@
-# aulas_alcn
-Aulas de Álgebra Linear e Cálculo Numérico.
+# algebra-linear (WIP)
+Projeto de Álgebra Linear e Cálculo Numérico.
 
-#### Links:
-- [Aulas PPPI](https://github.com/AndreiLegram/aulas_pppi)
-- [Aulas DS](https://github.com/AndreiLegram/aulas_ds)
-- [Aulas BD](https://github.com/AndreiLegram/aulas_bd)
+## Testando:
+
+Para testar a aplicação, é necessário ter pelo menos a versão 3.10 do Python instalado em sua máquina.
+
+Atendendo esse requisito, abra um terminal, cole a seguinte lista de comandos e aperte Enter:
+
+```sh
+git clone https://github.com/AndreiLegram/algebra-linear.git
+cd algebra-linear
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Agora que o seu ambiente está configurado, teste a aplicação rodando o seguinte comando:
+
+```sh
+python main.py
+```
 
 #### Created by:
 
