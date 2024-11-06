@@ -3,7 +3,7 @@ Projeto de Álgebra Linear e Cálculo Numérico.
 
 ## Testando:
 
-Para testar a aplicação, é necessário ter pelo menos a versão 3.10 do Python instalado em sua máquina.
+Para testar a aplicação, é necessário ter pelo menos a versão 3.6.15 do Python instalado em sua máquina.
 
 Atendendo esse requisito, abra um terminal, cole a seguinte lista de comandos e aperte Enter:
 

@@ -4,6 +4,7 @@ from . import methods
 from os import listdir
 from os.path import isfile, join
 from inspect import getmembers, isfunction
+from src.models import LinearSystem
 
 DATA_DIR = 'algebra-linear/data'
 
@@ -31,34 +32,19 @@ def get_datafile_list():
         raise Exception(msg)
 
 def get_data_from_file(file_name):
-    # TODO get_data_from_file
     file = open(join(DATA_DIR, file_name))
     data = json.loads(file.read())
     file.close()
+
     if not data:
         msg = 'ERRO: O arquivo JSON \'%s\' é inválido' % file_name
         raise Exception(msg)
-    return data
 
-def get_method_kwargs(matrix, method):
-    # TODO get_method_kwargs
-    if method == 'gauss_seidel':
-        result = {
-            "A": matrix,
-            "b": matrix,
-            "tolerance": 25,
-            "max_iterations": 50,
-            "x": matrix
-        }
-        return result
-    elif method == 'jacobi':
-        result = {
-            "A": matrix,
-            "b": matrix,
-            "N": 25,
-            "x": None
-        }
-        return result
-    else:
-        msg = 'ERRO: O método \'%s\' é inválido' % method
-        raise Exception(msg)
+    sistemas = {}
+    for i, matrix in data.items():
+        A = matrix.copy()
+        b = []
+        for row in A:
+            b.append(row.pop())
+        sistemas[i] = LinearSystem(i, A, b)
+    return sistemas

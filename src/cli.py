@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 import src.utils as utils
 
 def process_args():
@@ -16,5 +17,8 @@ def process_args():
         raise Exception(msg)
 
 def build_result(index, result):
-    # TODO build_result
-    return {index: result}
+    rounded_result = np.round(result.copy(), 2)
+    return '\nSolução do sistema "%s":\n' \
+        'Valores absolutos: %s\n' \
+        'Valores arredondados: %s\n' \
+        % (index, result, rounded_result)
