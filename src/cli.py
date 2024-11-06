@@ -20,5 +20,5 @@ def process_args():
 def build_result(system, method_name, result):
     rounded_result = np.round(result.copy(), 4)
     return '\n- Solução do sistema "%s" pelo método "%s":\n' \
-        'Valores absolutos: \n%s\nValores arredondados: \n%s\n' \
+        'Valores completos: \n%s\nValores arredondados: \n%s\n' \
         % (system.i, method_name, result, rounded_result)

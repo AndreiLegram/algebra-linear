@@ -6,7 +6,11 @@ from os.path import isfile, join
 from inspect import getmembers, isfunction
 from src.models import LinearSystem
 
-DATA_DIR = 'algebra-linear/data'
+try:
+    listdir('data')
+    DATA_DIR = 'data'
+except FileNotFoundError:
+    DATA_DIR = 'algebra-linear/data'
 
 def get_method_list():
     return [m[0] for m in getmembers(methods, isfunction)]
