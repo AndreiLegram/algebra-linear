@@ -1,6 +1,6 @@
 import numpy as np
 
-def gauss_jacobi(system, x=None, N=100, t=0.001):
+def jacobi(system, x=None, N=100, t=0.001):
     A = system.A
     b = system.b
     if x is None:
@@ -8,7 +8,7 @@ def gauss_jacobi(system, x=None, N=100, t=0.001):
 
     D = np.diag(A)
     R = A - np.diagflat(D)
-    print('- Iniciando iteração do sistema "%s" pelo método "%s"' % (system.i, 'gauss_jacobi'))
+    print('- Iniciando iteração do sistema "%s" pelo método "%s"' % (system.i, 'jacobi'))
     print('Interação N: - (Vetor da solução) - (Valor da variação)')
     if not system.d or (D.max() == 0.0 and D.min() == 0.0):
         return x
@@ -23,13 +23,13 @@ def gauss_jacobi(system, x=None, N=100, t=0.001):
 
     return x
 
-def gauss_seidel(system, x=None, N=100, t=0.001):
+def seidel(system, x=None, N=100, t=0.001):
     A = system.A
     b = system.b
     if x is None:
         x = np.zeros(len(A[0]))
 
-    print('- Iniciando iteração do sistema "%s" pelo método "%s"' % (system.i, 'gauss_seidel'))
+    print('- Iniciando iteração do sistema "%s" pelo método "%s"' % (system.i, 'seidel'))
     print('Interação N: - (Vetor da solução) - (Valor da variação)')
     if not system.d or (A.max() == 0.0 and A.min() == 0.0):
         return x
@@ -45,7 +45,7 @@ def gauss_seidel(system, x=None, N=100, t=0.001):
 
     return x
 
-def inversa(system):
+def invert(system):
     print('Iniciando inversão da matriz A do sistema "%s"' % system.i)
     copy_A = system.A.copy()
     inv_A = np.linalg.inv(copy_A)
