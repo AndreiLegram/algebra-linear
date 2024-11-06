@@ -19,7 +19,7 @@ Para testar a aplicação, basta seguir os passos abaixo.
 Primeiramente, em sua máquina devem estar instalados os seguintes aplicativos:
 
 - Git
-- Python (versão >= 3.6.15)
+- Python
 
 ### 2. Instalação
 
@@ -46,9 +46,9 @@ cd algebra-linear
   - `python -m venv .venv`
   - `.\.venv\Scripts\Activate.ps1`
 
-**2.3. Instalação dos requisitos do aplicativo.**
+**2.3. Instalação do NumPy.**
 ```sh
-pip install -r requirements.txt
+pip install numpy
 ```
 
 ### 3. Teste
