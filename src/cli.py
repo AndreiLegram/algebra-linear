@@ -12,10 +12,13 @@ def process_args():
     if len(sys.argv) >= 3:
         method_list = utils.get_method_list()
         if sys.argv[2] not in method_list:
-            msg = 'Segundo argumento inválido...\n' \
-                  'Informe um dos seguintes métodos para o cálculo:\n'
-            msg += '\n'.join(map(lambda m: '- %s' % m, method_list))
-            raise Exception(msg)
+            datafile_name = sys.argv[1]
+            data = utils.get_data_from_file(datafile_name)
+            for sys.argv[2] in data.keys():
+                msg = 'Segundo argumento inválido...\n' \
+                    'Informe um dos seguintes métodos para o cálculo:\n'
+                msg += '\n'.join(map(lambda m: '- %s' % m, method_list))
+                raise Exception(msg)
 
 def build_result(system, method_name, result):
     rounded_result = np.round(result.copy(), 4)

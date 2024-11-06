@@ -39,16 +39,15 @@ def get_data_from_file(file_name):
     file = open(join(DATA_DIR, file_name))
     data = json.loads(file.read())
     file.close()
-
     if not data:
         msg = 'ERRO: O arquivo JSON \'%s\' é inválido' % file_name
         raise Exception(msg)
+    return data
 
-    sistemas = []
+def get_systems_from_data(data):
+    systems = []
     for i, matrix in data.items():
         A = matrix.copy()
-        b = []
-        for row in A:
-            b.append(row.pop())
-        sistemas.append(LinearSystem(i, A, b))
-    return sistemas
+        b = [row.pop() for row in A]
+        systems.append(LinearSystem(i, A, b))
+    return systems

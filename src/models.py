@@ -8,11 +8,9 @@ class LinearSystem:
         self.A = np.array(A, dtype=float)
         self.b = np.array(b, dtype=float)
         self.validate_dimensions()
-
-        self.d = True
-        if not self.is_diagonally_dominant(self.A):
-            if not self.make_diagonally_dominant():
-                self.d = False
+        self.d = self.is_diagonally_dominant(self.A)
+        if not self.d:
+           self.d = self.make_diagonally_dominant()
 
     def validate_dimensions(self):
         """Ensure A and b have compatible dimensions."""
