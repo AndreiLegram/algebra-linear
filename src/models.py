@@ -9,9 +9,10 @@ class LinearSystem:
         self.b = np.array(b, dtype=float)
         self.validate_dimensions()
 
+        self.d = True
         if not self.is_diagonally_dominant(self.A):
             if not self.make_diagonally_dominant():
-                raise ValueError("A matriz A deve ser diagonal dominante.")
+                self.d = False
 
     def validate_dimensions(self):
         """Ensure A and b have compatible dimensions."""
@@ -42,4 +43,4 @@ class LinearSystem:
         return False
 
     def __str__(self):
-        return f"Coefficient matrix A:\n{self.A}\n\nRight-hand side vector b:\n{self.b}"
+        return f"Matriz dos coeficientes A:\n{self.A}\n\nVetor das constantes b:\n{self.b}"

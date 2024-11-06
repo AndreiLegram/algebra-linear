@@ -40,11 +40,11 @@ def get_data_from_file(file_name):
         msg = 'ERRO: O arquivo JSON \'%s\' é inválido' % file_name
         raise Exception(msg)
 
-    sistemas = {}
+    sistemas = []
     for i, matrix in data.items():
         A = matrix.copy()
         b = []
         for row in A:
             b.append(row.pop())
-        sistemas[i] = LinearSystem(i, A, b)
+        sistemas.append(LinearSystem(i, A, b))
     return sistemas

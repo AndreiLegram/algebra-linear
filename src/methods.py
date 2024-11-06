@@ -8,18 +8,17 @@ def gauss_jacobi(system, x=None, N=100, t=0.001):
 
     D = np.diag(A)
     R = A - np.diagflat(D)
-    if D.max() == 0.0 and D.min() == 0.0:
+    print('- Iniciando iteração do sistema "%s" pelo método "%s"' % (system.i, 'gauss_jacobi'))
+    print('Interação N: - (Vetor da solução) - (Valor da variação)')
+    if not system.d or (D.max() == 0.0 and D.min() == 0.0):
         return x
 
-    for k in range(1, N+1):
-        print('%s - Interação %s: O vetor da solução é "%s"' % (system.i, k, x))
+    for k in range(N):
         x_old = x.copy()
-
         x = (b - np.dot(R,x)) / D
-
-        LnormInf = max(abs((x - x_old))) / max(abs(x_old)) if k > 1 else 1
-        print('%s - Interação %s: O valor da variação é "%s"' % (system.i, k, LnormInf))
-        if LnormInf <= t:
+        v = max(abs((x - x_old))) / max(abs(x_old)) if k > 1 else 1
+        print('Interação %s: - %s - %s' % (k, x_old, v))
+        if v <= t:
             break
 
     return x
@@ -30,19 +29,24 @@ def gauss_seidel(system, x=None, N=100, t=0.001):
     if x is None:
         x = np.zeros(len(A[0]))
 
-    if A.max() == 0.0 and A.min() == 0.0:
+    print('- Iniciando iteração do sistema "%s" pelo método "%s"' % (system.i, 'gauss_seidel'))
+    print('Interação N: - (Vetor da solução) - (Valor da variação)')
+    if not system.d or (A.max() == 0.0 and A.min() == 0.0):
         return x
 
-    for k in range(1, N+1):
-        print('%s - Interação %s: O vetor da solução é "%s"' % (system.i, k, x))
+    for k in range(N):
         x_old = x.copy()
-
         for i in range(A.shape[0]):
             x[i] = (b[i] - np.dot(A[i,:i], x[:i]) - np.dot(A[i,(i+1):], x_old[(i+1):])) / A[i ,i]
-
-        LnormInf = max(abs((x - x_old))) / max(abs(x_old)) if k > 1 else 1
-        print('%s - Interação %s: O valor da variação é "%s"' % (system.i, k, LnormInf))
-        if LnormInf <= t:
+        v = max(abs((x - x_old))) / max(abs(x_old)) if k > 1 else 1
+        print('Interação %s: - %s - %s' % (k, x_old, v))
+        if v <= t:
             break
 
     return x
+
+def inversa(system):
+    print('Iniciando inversão da matriz A do sistema "%s"' % system.i)
+    copy_A = system.A.copy()
+    inv_A = np.linalg.inv(copy_A)
+    return inv_A
