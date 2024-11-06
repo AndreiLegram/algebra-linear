@@ -32,7 +32,7 @@ git clone https://github.com/AndreiLegram/algebra-linear.git
 cd algebra-linear
 ```
 
-**2.2. Criação e ativação do ambiente virtual**
+**2.2. Criação e ativação do ambiente virtual (opcional)**
 
 - Linux/macOS:
   - `python3 -m venv .venv`
@@ -46,7 +46,7 @@ cd algebra-linear
   - `python -m venv .venv`
   - `.\.venv\Scripts\Activate.ps1`
 
-**2.3. Instalação do NumPy.**
+**2.3. Instalação da biblioteca NumPy**
 ```sh
 pip install numpy
 ```
