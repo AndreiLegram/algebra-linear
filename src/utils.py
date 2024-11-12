@@ -44,10 +44,13 @@ def get_data_from_file(file_name):
         raise Exception(msg)
     return data
 
-def get_systems_from_data(data):
+def get_systems_from_data(data, system_name):
     systems = []
-    for i, matrix in data.items():
-        A = matrix.copy()
-        b = [row.pop() for row in A]
-        systems.append(LinearSystem(i, A, b))
+    for i, system_raw in data.items():
+        if system_name and i != system_name:
+            continue
+        if 'A' not in system_raw:
+            msg = 'ERRO: O sistema \'%s\' não possui matriz A' % i
+            raise Exception(msg)
+        systems.append(LinearSystem(i, **system_raw))
     return systems
