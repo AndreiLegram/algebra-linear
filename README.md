@@ -50,6 +50,7 @@ cd algebra-linear
 ```sh
 pip install numpy
 ```
+<div style="page-break-after: always;"></div>
 
 ### 3. Teste
 
@@ -105,6 +106,7 @@ regras listadas abaixo:
     - Padrão: 100
   - **t (opcional):** Tolerância ou precisão.
     - Padrão: 0.001
+<div style="page-break-after: always;"></div>
 
 ## Trabalho
 
@@ -116,12 +118,14 @@ Campus Bento Gonçalves.
 ![questao_1](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1.png?raw=true)
 ![questao_1_input](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1_input.png?raw=true)
 ![questao_1_output](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1_output.png?raw=true)
+<div style="page-break-after: always;"></div>
 
 ### Questão 2
 
 ![questao_2](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_2.png?raw=true)
 ![questao_2_input](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_2_input.png?raw=true)
 ![questao_2_output](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_2_output.png?raw=true)
+<div style="page-break-after: always;"></div>
 
 ### Questão Extra
 
@@ -130,6 +134,7 @@ Campus Bento Gonçalves.
 ![questao_extra_output](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_extra_output.png?raw=true)
 
 As prints foram tiradas da CLI do Visual Studio Code após rodar o comando `python main.py trabalho.json`
+<div style="page-break-after: always;"></div>
 
 ## Referências
 
