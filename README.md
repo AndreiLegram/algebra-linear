@@ -115,7 +115,7 @@ Campus Bento Gonçalves.
 
 ![questao_1](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1.png?raw=true)
 ![questao_1_input](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1_input.png?raw=true)
-![questao_1_output](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1_input.png?raw=true)
+![questao_1_output](https://github.com/AndreiLegram/algebra-linear/blob/master/public/questao_1_output.png?raw=true)
 
 ### Questão 2
 
